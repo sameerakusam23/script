@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1><%= message %></h1>
+
+        <% if (errors && errors.length > 0) { %>
+
+            <div class="error">
+                <h3>Please fix these errors:</h3>
+
+                <ul>
+                    <% errors.forEach(function(error) { %>
+                        <li><%= error %></li>
+                    <% }); %>
+                </ul>
+            </div>
+
+        <% } %>
+
+        <form action="/register" method="POST">
+
+            <label>Name:</label>
+            <input
+                type="text"
+                name="name"
+                value="<%= oldData ? oldData.name : '' %>"
+            >
+
+            <br><br>
+
+            <label>Email:</label>
+            <input
+                type="email"
+                name="email"
+                value="<%= oldData ? oldData.email : '' %>"
+            >
+
+            <br><br>
+
+            <label>Age:</label>
+            <input
+                type="number"
+                name="age"
+                value="<%= oldData ? oldData.age : '' %>"
+            >
+
+            <br><br>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
